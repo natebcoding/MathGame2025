@@ -40,8 +40,8 @@
 
 
             }
+           Helpers.AddToHistory(score, Models.GameType.Addition);
 
-            Helpers.AddToHistory(score, "Addition");
 
         }
         internal void SubtractionGame(string message)
@@ -78,7 +78,7 @@
                 if (i == 4) Console.WriteLine($"Your score was {score} points");
             }
 
-            Helpers.AddToHistory(score, "Subtraction");
+            Helpers.AddToHistory(score, Models.GameType.Subtraction);
 
         }
         internal void MultiplicationGame(string message)
@@ -116,7 +116,7 @@
 
             }
 
-            Helpers.AddToHistory(score, "Multiplication");
+            Helpers.AddToHistory(score, Models.GameType.Multiplication);
         }
 
         internal void DivisionGame(string message)
@@ -152,7 +152,7 @@
 
             }
 
-            Helpers.AddToHistory(score, "Division");
+            Helpers.AddToHistory(score, Models.GameType.Division);
         }
 
     }
