@@ -21,6 +21,12 @@
 
                 var result = Console.ReadLine();
 
+                while (string.IsNullOrEmpty(result) || !int.TryParse(result, out _)) // while the result is empty or not an integer, keep asking for the answer
+                {
+                    Console.WriteLine("Please enter a valid number");
+                    result = Console.ReadLine();
+                }
+
                 if (int.Parse(result) == firstNumber + secondNumber) // parse string into integer
                 {
                     Console.WriteLine("Your answer was correct. Type any key for the next question");

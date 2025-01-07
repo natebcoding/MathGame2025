@@ -23,10 +23,13 @@ namespace MathGame2025
         };
         internal static void GetGames()
         {
+            var gamesToPrint = games.Where(x => x.Date > new DateTime(2025, 01, 01)).OrderByDescending(x => x.Score); // This will filter the games list to only show the games that are of type Division
+             
+
             Console.Clear();
             Console.WriteLine("Games History");
             Console.WriteLine("-----------------");
-            foreach (var game in games)
+            foreach (var game in gamesToPrint)
             {
                 Console.WriteLine($"{game.Date} - {game.Type} - {game.Score}pts");
             }
