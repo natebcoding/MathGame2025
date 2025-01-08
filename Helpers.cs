@@ -7,7 +7,7 @@ namespace MathGame2025
     {
         internal static List<Game> games = new List<Game>
         {
-        new Game { Date = DateTime.Now.AddDays(1), Type = GameType.Addition, Score = 5 },
+        /*new Game { Date = DateTime.Now.AddDays(1), Type = GameType.Addition, Score = 5 },
         new Game { Date = DateTime.Now.AddDays(2), Type = GameType.Multiplication, Score = 4 },
         new Game { Date = DateTime.Now.AddDays(3), Type = GameType.Division, Score = 4 },
         new Game { Date = DateTime.Now.AddDays(4), Type = GameType.Subtraction, Score = 3 },
@@ -19,7 +19,7 @@ namespace MathGame2025
         new Game { Date = DateTime.Now.AddDays(10), Type = GameType.Multiplication, Score = 1 },
         new Game { Date = DateTime.Now.AddDays(11), Type = GameType.Subtraction, Score = 0 },
         new Game { Date = DateTime.Now.AddDays(12), Type = GameType.Division, Score = 2 },
-        new Game { Date = DateTime.Now.AddDays(13), Type = GameType.Subtraction, Score = 5 },
+        new Game { Date = DateTime.Now.AddDays(13), Type = GameType.Subtraction, Score = 5 },*/
         };
         internal static void GetGames()
         {
@@ -71,7 +71,27 @@ namespace MathGame2025
             }); // Logs the game played and the score into the list declared "games" 
         }
 
+        internal static string? ValidateResult(string result)
+        {
+            while (string.IsNullOrEmpty(result) || !int.TryParse(result, out _)) // while the result is empty or not an integer, keep asking for the answer
+            {
+                Console.WriteLine("Your answer must be an integer. Please try again");
+                result = Console.ReadLine();
+            }
+                return result;
+        }
 
+        internal static string GetName()
+        {
+            Console.WriteLine("Please type your name");
+            string name = Console.ReadLine();
 
+            while (string.IsNullOrEmpty(name)) // while the name is empty, keep asking for the name
+            {
+                Console.WriteLine("Your name cannot be empty. Please type your name");
+                name = Console.ReadLine();
+            }
+            return name;
+        }
     }
 }

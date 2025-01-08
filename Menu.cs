@@ -7,8 +7,9 @@ namespace MathGame2025
         GameEngine engine = new GameEngine(); // instance of the GameEngine class
         internal void ShowMenu(string name, DateTime date)
         {
-            Console.WriteLine("--------------------------------------");
+            Console.Clear();
             Console.WriteLine($"Hello {name.ToUpper()}. It's {date.DayOfWeek}. This is your math game.");
+            Console.ReadLine();
             Console.WriteLine("\n");
 
             bool isGameOn = true;
