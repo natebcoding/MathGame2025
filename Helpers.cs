@@ -32,7 +32,7 @@ namespace MathGame2025
             Console.WriteLine("-----------------");
             foreach (var game in gamesToPrint)
             {
-                Console.WriteLine($"{game.Date} - {game.Type} - {game.Score}pts");
+                Console.WriteLine($"{game.Date} - {game.difficulty} - {game.Type} - {game.Score}pts");
             }
             Console.WriteLine("-----------------\n");
             Console.WriteLine("Press any key to go back to the main menu");
@@ -44,6 +44,7 @@ namespace MathGame2025
             int defaultMin = 1;
             int defaultMax = 9;
             bool difficulty = false;
+            DifficultyLevel selectedDifficulty = DifficultyLevel.Easy;
 
             while (!difficulty)
             {
@@ -56,16 +57,19 @@ namespace MathGame2025
                     case "easy":
                         defaultMin = 1;
                         defaultMax = 99;
+                        selectedDifficulty = DifficultyLevel.Easy;
                         difficulty = true;
                         break;
                     case "medium":
                         defaultMin = 99;
                         defaultMax = 500;
+                        selectedDifficulty = DifficultyLevel.Medium;
                         difficulty = true;
                         break;
                     case "hard":
                         defaultMin = 500;
                         defaultMax = 999;
+                        selectedDifficulty = DifficultyLevel.Hard;
                         difficulty = true;
                         break;
                     default:
@@ -94,13 +98,15 @@ namespace MathGame2025
 
         }
 
-        internal static void AddToHistory(int gameScore, GameType gameType)
+        internal static void AddToHistory(int gameScore, GameType gameType, DifficultyLevel difficulty)
         {
             games.Add(new Game
             {
                 Date = DateTime.UtcNow,
                 Score = gameScore,
-                Type = gameType
+                Type = gameType,
+                difficulty = difficulty
+
 
 
             }); // Logs the game played and the score into the list declared "games" 

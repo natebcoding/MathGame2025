@@ -14,6 +14,9 @@ internal class Game
 
     internal GameType Type { get; set; }
 
+    internal DifficultyLevel difficulty { get; set; }
+
+
 }
 
 internal enum GameType 
@@ -22,4 +25,11 @@ internal enum GameType
     Subtraction,
     Multiplication,
     Division
+}
+
+internal enum DifficultyLevel
+{
+    Easy,
+    Medium,
+    Hard
 }

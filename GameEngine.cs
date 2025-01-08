@@ -9,6 +9,7 @@ namespace MathGame2025
             int defaultMin = 1;
             int defaultMax = 9;
             bool difficulty = false;
+            Models.DifficultyLevel selectedDifficulty = Models.DifficultyLevel.Easy;
 
             while (!difficulty)
             {
@@ -22,15 +23,17 @@ namespace MathGame2025
                         defaultMin = 1;
                         defaultMax = 9;
                         difficulty = true;
+                        selectedDifficulty = Models.DifficultyLevel.Easy;
                         break;
                     case "medium":
                         defaultMin = 10;
                         defaultMax = 99;
-                        difficulty = true;
+                        selectedDifficulty = Models.DifficultyLevel.Medium;
                         break;
                     case "hard":
                         defaultMin = 100;
                         defaultMax = 999;
+                        selectedDifficulty = Models.DifficultyLevel.Hard;   
                         difficulty = true;
                         break;
                     default:
@@ -78,7 +81,7 @@ namespace MathGame2025
 
 
             }
-           Helpers.AddToHistory(score, Models.GameType.Addition);
+           Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty);
 
 
         }
@@ -87,6 +90,7 @@ namespace MathGame2025
             int defaultMin = 1;
             int defaultMax = 9;
             bool difficulty = false;
+            Models.DifficultyLevel selectedDifficulty = Models.DifficultyLevel.Easy;
 
             while (!difficulty)
             {
@@ -99,16 +103,19 @@ namespace MathGame2025
                     case "easy":
                         defaultMin = 1;
                         defaultMax = 9;
+                        selectedDifficulty = Models.DifficultyLevel.Easy;
                         difficulty = true;
                         break;
                     case "medium":
                         defaultMin = 10;
                         defaultMax = 99;
+                        selectedDifficulty = Models.DifficultyLevel.Medium; 
                         difficulty = true;
                         break;
                     case "hard":
                         defaultMin = 100;
                         defaultMax = 999;
+                        selectedDifficulty = Models.DifficultyLevel.Hard;   
                         difficulty = true;
                         break;
                     default:
@@ -153,7 +160,7 @@ namespace MathGame2025
                     if (i == 4) Console.WriteLine($"Your score was {score} points");
                 }
 
-                Helpers.AddToHistory(score, Models.GameType.Subtraction);
+                Helpers.AddToHistory(score, Models.GameType.Subtraction, selectedDifficulty);
 
             }
         }
@@ -163,6 +170,7 @@ namespace MathGame2025
             int defaultMin = 1;
             int defaultMax = 9;
             bool difficulty = false;
+            Models.DifficultyLevel selectedDifficulty = Models.DifficultyLevel.Easy;
 
             while (!difficulty)
             {
@@ -175,16 +183,19 @@ namespace MathGame2025
                     case "easy":
                         defaultMin = 1;
                         defaultMax = 9;
+                        selectedDifficulty = Models.DifficultyLevel.Easy;
                         difficulty = true;
                         break;
                     case "medium":
                         defaultMin = 10;
                         defaultMax = 99;
+                        selectedDifficulty = Models.DifficultyLevel.Medium;
                         difficulty = true;
                         break;
                     case "hard":
                         defaultMin = 100;
                         defaultMax = 999;
+                        selectedDifficulty = Models.DifficultyLevel.Hard;
                         difficulty = true;
                         break;
                     default:
@@ -231,12 +242,13 @@ namespace MathGame2025
 
             }
 
-            Helpers.AddToHistory(score, Models.GameType.Multiplication);
+            Helpers.AddToHistory(score, Models.GameType.Multiplication, selectedDifficulty);
         }
 
         internal void DivisionGame(string message)
         {
             var score = 0;
+            Models.DifficultyLevel selectedDifficulty = Models.DifficultyLevel.Easy;
 
             for (int i = 0; i < 5; i++)
             {
@@ -272,7 +284,7 @@ namespace MathGame2025
 
             }
 
-            Helpers.AddToHistory(score, Models.GameType.Division);
+            Helpers.AddToHistory(score, Models.GameType.Division, selectedDifficulty);
         }
 
     }
