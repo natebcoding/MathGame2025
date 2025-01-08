@@ -8,6 +8,7 @@ namespace MathGame2025
     {
         internal static List<Game> games = new List<Game>
         {
+        // Sample data to test filters
         /*new Game { Date = DateTime.Now.AddDays(1), Type = GameType.Addition, Score = 5 },
         new Game { Date = DateTime.Now.AddDays(2), Type = GameType.Multiplication, Score = 4 },
         new Game { Date = DateTime.Now.AddDays(3), Type = GameType.Division, Score = 4 },
@@ -109,12 +110,12 @@ namespace MathGame2025
 
 
 
-            }); // Logs the game played and the score into the list declared "games" 
+            }); 
         }
 
         internal static string? ValidateResult(string result)
         {
-            while (string.IsNullOrEmpty(result) || !int.TryParse(result, out _)) // while the result is empty or not an integer, keep asking for the answer
+            while (string.IsNullOrEmpty(result) || !int.TryParse(result, out _)) 
             {
                 Console.WriteLine("Your answer must be an integer. Please try again");
                 result = Console.ReadLine();

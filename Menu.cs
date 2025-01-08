@@ -4,7 +4,7 @@ namespace MathGame2025
 {
     internal class Menu
     {
-        GameEngine engine = new GameEngine(); // instance of the GameEngine class
+        GameEngine engine = new GameEngine(); 
         internal void ShowMenu(string name, DateTime date)
         {
             Console.Clear();
