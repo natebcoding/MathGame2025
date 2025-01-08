@@ -32,7 +32,7 @@ namespace MathGame2025
             Console.WriteLine("-----------------");
             foreach (var game in gamesToPrint)
             {
-                Console.WriteLine($"{game.Date} - {game.difficulty} - {game.Type} - {game.Score}pts");
+                Console.WriteLine($"{game.Date} - {game.Difficulty} - {game.Type} - {game.Score}pts");
             }
             Console.WriteLine("-----------------\n");
             Console.WriteLine("Press any key to go back to the main menu");
@@ -105,7 +105,7 @@ namespace MathGame2025
                 Date = DateTime.UtcNow,
                 Score = gameScore,
                 Type = gameType,
-                difficulty = difficulty
+                Difficulty = difficulty
 
 
 
@@ -135,16 +135,6 @@ namespace MathGame2025
             return name;
         }
 
-        /*internal static string Timer() ---- Not Functional Yet
-        {
-            var timeLeft = 60;
-            for (int i = 0; i < timeLeft; i++)
-            {
-                Console.SetCursorPosition(0, Console.CursorTop);
-                Console.WriteLine($"Time left: {timeLeft - i} seconds");
-                Thread.Sleep(1000);
-            }
-            return "Time's up!";
-        }*/
+        
     }
 }

@@ -33,7 +33,7 @@ namespace MathGame2025
                     case "hard":
                         defaultMin = 100;
                         defaultMax = 999;
-                        selectedDifficulty = Models.DifficultyLevel.Hard;   
+                        selectedDifficulty = Models.DifficultyLevel.Hard;
                         difficulty = true;
                         break;
                     default:
@@ -51,7 +51,7 @@ namespace MathGame2025
 
             for (int i = 0; i < 5; i++)
             {
-            
+
                 Console.Clear();
                 Console.WriteLine(message);
                 firstNumber = random.Next(defaultMin, defaultMax);
@@ -81,7 +81,7 @@ namespace MathGame2025
 
 
             }
-           Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty);
+            Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty);
 
 
         }
@@ -109,13 +109,13 @@ namespace MathGame2025
                     case "medium":
                         defaultMin = 10;
                         defaultMax = 99;
-                        selectedDifficulty = Models.DifficultyLevel.Medium; 
+                        selectedDifficulty = Models.DifficultyLevel.Medium;
                         difficulty = true;
                         break;
                     case "hard":
                         defaultMin = 100;
                         defaultMax = 999;
-                        selectedDifficulty = Models.DifficultyLevel.Hard;   
+                        selectedDifficulty = Models.DifficultyLevel.Hard;
                         difficulty = true;
                         break;
                     default:
@@ -222,7 +222,7 @@ namespace MathGame2025
 
 
                 var result = Console.ReadLine();
-                
+
                 result = Helpers.ValidateResult(result);
 
 
@@ -287,5 +287,105 @@ namespace MathGame2025
             Helpers.AddToHistory(score, Models.GameType.Division, selectedDifficulty);
         }
 
+        internal void RandomGame(string message)
+        {
+            int defaultMin = 1;
+            int defaultMax = 9;
+            bool difficulty = false;
+            Models.DifficultyLevel selectedDifficulty = Models.DifficultyLevel.Easy;
+
+            while (!difficulty)
+            {
+                Console.WriteLine("What difficulty level would you like?");
+                Console.WriteLine("Easy, Medium or Hard?");
+                string difficultyLevel = Console.ReadLine()?.ToLower();
+
+                switch (difficultyLevel)
+                {
+                    case "easy":
+                        defaultMin = 1;
+                        defaultMax = 9;
+                        selectedDifficulty = Models.DifficultyLevel.Easy;
+                        difficulty = true;
+                        break;
+                    case "medium":
+                        defaultMin = 10;
+                        defaultMax = 99;
+                        selectedDifficulty = Models.DifficultyLevel.Medium;
+                        difficulty = true;
+                        break;
+                    case "hard":
+                        defaultMin = 100;
+                        defaultMax = 999;
+                        selectedDifficulty = Models.DifficultyLevel.Hard;
+                        difficulty = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid difficulty selected. Please try again.");
+                        Console.ReadLine();
+                        break;
+                }
+            }
+
+            var score = 0;
+            var random = new Random();
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Clear();
+                Console.WriteLine(message);
+
+                int firstNumber = random.Next(defaultMin, defaultMax);
+                int secondNumber = random.Next(defaultMin, defaultMax);
+                string question = "";
+                int ValidateAnswer = 0;
+
+                var gameType = (Models.GameType)random.Next(0, 4); 
+
+                switch (gameType)
+                {
+                    case Models.GameType.Addition:
+                        question = $"{firstNumber} + {secondNumber}";
+                        ValidateAnswer = firstNumber + secondNumber;
+                        break;
+                    case Models.GameType.Subtraction:
+                        question = $"{firstNumber} - {secondNumber}";
+                        ValidateAnswer = firstNumber - secondNumber;
+                        break;
+                    case Models.GameType.Multiplication:
+                        question = $"{firstNumber} * {secondNumber}";
+                        ValidateAnswer = firstNumber * secondNumber;
+                        break;
+                    case Models.GameType.Division:
+                        secondNumber = random.Next(1, defaultMax);
+                        firstNumber = secondNumber * random.Next(defaultMin, defaultMax / secondNumber);
+                        question = $"{firstNumber} / {secondNumber}";
+                        ValidateAnswer = firstNumber / secondNumber;
+                        break;
+                }
+
+                Console.WriteLine(question);
+                var result = Console.ReadLine();
+                result = Helpers.ValidateResult(result);
+
+                if (int.Parse(result) == ValidateAnswer)
+                {
+                    Console.WriteLine("Your answer was correct. Type any key for the next question");
+                    score++;
+                }
+                else
+                {
+                    Console.WriteLine("Your answer was incorrect. Type any key for the next question");
+                }
+
+                Console.ReadKey();
+            }
+
+            Console.WriteLine($"Your score was {score} points. Press any key to go back to the main menu.");
+            Console.ReadLine();
+
+            Helpers.AddToHistory(score, Models.GameType.Random, selectedDifficulty); 
+        }
     }
+
 }

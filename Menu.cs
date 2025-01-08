@@ -8,7 +8,7 @@ namespace MathGame2025
         internal void ShowMenu(string name, DateTime date)
         {
             Console.Clear();
-            Console.WriteLine($"Hello {name.ToUpper()}. It's {date.DayOfWeek}. This is your math game.");
+            Console.WriteLine($"Hello {name}. It's {date.DayOfWeek}. Welcome to the Math Game.");
             Console.ReadLine();
             Console.WriteLine("\n");
 
@@ -23,6 +23,7 @@ namespace MathGame2025
                                 S - Subtraction
                                 M - Multiplication 
                                 D - Division
+                                R - Random
                                 Press Q or type Quit at anytime to exit the program.");
                 Console.WriteLine("--------------------------------------");
 
@@ -44,6 +45,9 @@ namespace MathGame2025
                         break;
                     case "d":
                         engine.DivisionGame("Division game");
+                        break;
+                    case "r":
+                        engine.RandomGame("Random game");
                         break;
                     case "quit":
                     case "q":
