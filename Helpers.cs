@@ -1,5 +1,6 @@
 ﻿using MathGame2025;
 using MathGame2025.Models;
+using System.Threading.Channels;
 
 namespace MathGame2025
 {
@@ -40,16 +41,50 @@ namespace MathGame2025
 
         internal static int[] GetDivisionNumbers()
         {
+            int defaultMin = 1;
+            int defaultMax = 9;
+            bool difficulty = false;
+
+            while (!difficulty)
+            {
+                Console.WriteLine("What difficulty level would you like?");
+                Console.WriteLine("Easy, Medium or Hard?");
+                string difficultyLevel = Console.ReadLine();
+
+                switch (difficultyLevel)
+                {
+                    case "easy":
+                        defaultMin = 1;
+                        defaultMax = 99;
+                        difficulty = true;
+                        break;
+                    case "medium":
+                        defaultMin = 99;
+                        defaultMax = 500;
+                        difficulty = true;
+                        break;
+                    case "hard":
+                        defaultMin = 500;
+                        defaultMax = 999;
+                        difficulty = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid difficulty selected. Please try again.");
+                        Console.ReadLine();
+                        break;
+                }
+            }
+
             var random = new Random();
-            var firstNumber = random.Next(1, 99);
-            var secondNumber = random.Next(1, 99);
+            var firstNumber = random.Next(defaultMin, defaultMax);
+            var secondNumber = random.Next(defaultMin, defaultMax);
 
             var result = new int[2];
 
             while (firstNumber % secondNumber != 0) // while the first number divided by the second number is not equal to zero, keep generating random numbers
             {
-                firstNumber = random.Next(1, 99);
-                secondNumber = random.Next(1, 99);
+                firstNumber = random.Next(defaultMin, defaultMax);
+                secondNumber = random.Next(defaultMin, defaultMax);
             }
 
             result[0] = firstNumber; // this means the first number is the first element in the array
@@ -93,5 +128,17 @@ namespace MathGame2025
             }
             return name;
         }
+
+        /*internal static string Timer() ---- Not Functional Yet
+        {
+            var timeLeft = 60;
+            for (int i = 0; i < timeLeft; i++)
+            {
+                Console.SetCursorPosition(0, Console.CursorTop);
+                Console.WriteLine($"Time left: {timeLeft - i} seconds");
+                Thread.Sleep(1000);
+            }
+            return "Time's up!";
+        }*/
     }
 }
