@@ -83,7 +83,7 @@ namespace MathGame2025
                 {
                     stopWatch.Stop();
                     TimeSpan elapsedTime = stopWatch.Elapsed;
-                    string elapsedTimeRec = String.Format("{0:00}:{1:00}:2:00.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
+                    string elapsedTimeRec = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
                     Console.WriteLine($"Your score was {score} points. Elapsed Time: {elapsedTimeRec}. Press any key to go back to the main menu.");
                     Console.ReadLine();
                     Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty, elapsedTime);
@@ -173,7 +173,7 @@ namespace MathGame2025
                     if (i == 4) {            
                         stopWatch.Stop();
                         TimeSpan elapsedTime = stopWatch.Elapsed;
-                        string elapsedTimeRec = String.Format("{0:00}:{1:00}:2:00.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
+                        string elapsedTimeRec = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
                         Console.WriteLine($"Your score was {score} points. Elapsed Time: {elapsedTimeRec}. Press any key to go back to the main menu.");
                         Console.ReadLine();
                         Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty, elapsedTime);
@@ -264,7 +264,7 @@ namespace MathGame2025
                 {
                     stopWatch.Stop();
                     TimeSpan elapsedTime = stopWatch.Elapsed;
-                    string elapsedTimeRec = String.Format("{0:00}:{1:00}:2:00.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
+                    string elapsedTimeRec = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
                     Console.WriteLine($"Your score was {score} points. Elapsed Time: {elapsedTimeRec}. Press any key to go back to the main menu.");
                     Console.ReadLine();
                     Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty, elapsedTime);
@@ -313,7 +313,7 @@ namespace MathGame2025
                 {
                     stopWatch.Stop();
                     TimeSpan elapsedTime = stopWatch.Elapsed;
-                    string elapsedTimeRec = String.Format("{0:00}:{1:00}:2:00.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
+                    string elapsedTimeRec = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
                     Console.WriteLine($"Your score was {score} points. Elapsed Time: {elapsedTimeRec}. Press any key to go back to the main menu.");
                     Console.ReadLine();
                     Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty, elapsedTime);
@@ -422,7 +422,7 @@ namespace MathGame2025
 
             stopWatch.Stop();
             TimeSpan elapsedTime = stopWatch.Elapsed;
-            string elapsedTimeRec = String.Format("{0:00}:{1:00}:2:00.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
+            string elapsedTimeRec = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
             Console.WriteLine($"Your score was {score} points. Elapsed Time: {elapsedTimeRec}. Press any key to go back to the main menu.");
             Console.ReadLine();
             Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty, elapsedTime);

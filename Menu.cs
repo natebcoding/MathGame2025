@@ -8,7 +8,7 @@ namespace MathGame2025
         internal void ShowMenu(string name, DateTime date)
         {
             Console.Clear();
-            Console.WriteLine($"Hello {name}. It's {date.DayOfWeek}. Welcome to the Math Game.");
+            Console.WriteLine($"Hello {name}. It's {date.DayOfWeek}. Welcome to the Math Game. Press any key to continue");
             Console.ReadLine();
             Console.WriteLine("\n");
 

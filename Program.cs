@@ -1,6 +1,6 @@
 ﻿// Challenges
 // [X]Try to implement levels of difficulty
-// [ ] Add a timer to track how long the user takes to finish the game
+// [x] Add a timer to track how long the user takes to finish the game
 // [x] Create a 'Random Game' option where the players will be presented with questions from random operations
 
 

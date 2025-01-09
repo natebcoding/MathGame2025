@@ -33,7 +33,7 @@ namespace MathGame2025
             Console.WriteLine("-----------------");
             foreach (var game in gamesToPrint)
             {
-                string elapsedTimeFormatted = game.ElapsedTime.ToString("mm\\:ss");
+                string elapsedTimeFormatted = String.Format("{0:00}:{1:00}:{2:00}", game.ElapsedTime.Hours, game.ElapsedTime.Minutes, game.ElapsedTime.Seconds);
                 Console.WriteLine($"{game.Date} - {game.Difficulty} - {game.Type} - {game.Score}pts - {elapsedTimeFormatted}");
             }
             Console.WriteLine("-----------------\n");
