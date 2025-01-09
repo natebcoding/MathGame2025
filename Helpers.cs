@@ -33,7 +33,8 @@ namespace MathGame2025
             Console.WriteLine("-----------------");
             foreach (var game in gamesToPrint)
             {
-                Console.WriteLine($"{game.Date} - {game.Difficulty} - {game.Type} - {game.Score}pts");
+                string elapsedTimeFormatted = game.ElapsedTime.ToString("mm\\:ss");
+                Console.WriteLine($"{game.Date} - {game.Difficulty} - {game.Type} - {game.Score}pts - {elapsedTimeFormatted}");
             }
             Console.WriteLine("-----------------\n");
             Console.WriteLine("Press any key to go back to the main menu");
@@ -99,15 +100,15 @@ namespace MathGame2025
 
         }
 
-        internal static void AddToHistory(int gameScore, GameType gameType, DifficultyLevel difficulty)
+        internal static void AddToHistory(int gameScore, GameType gameType, DifficultyLevel difficulty, TimeSpan elapsedTime)
         {
             games.Add(new Game
             {
                 Date = DateTime.UtcNow,
                 Score = gameScore,
                 Type = gameType,
-                Difficulty = difficulty
-
+                Difficulty = difficulty,
+                ElapsedTime = elapsedTime
 
 
             }); 

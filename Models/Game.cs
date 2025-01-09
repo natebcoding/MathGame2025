@@ -11,6 +11,8 @@ internal class Game
 
     internal DifficultyLevel Difficulty { get; set; }
 
+    internal TimeSpan ElapsedTime { get; set; }
+
 
 }
 

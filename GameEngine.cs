@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Diagnostics;
 
 namespace MathGame2025
 {
@@ -6,10 +7,15 @@ namespace MathGame2025
     {
         internal void AdditionGame(string message)
         {
+
+            Stopwatch stopWatch = new Stopwatch();
+
+
             int defaultMin = 1;
             int defaultMax = 9;
             bool difficulty = false;
             Models.DifficultyLevel selectedDifficulty = Models.DifficultyLevel.Easy;
+
 
             while (!difficulty)
             {
@@ -51,8 +57,8 @@ namespace MathGame2025
 
             for (int i = 0; i < 5; i++)
             {
-
                 Console.Clear();
+                stopWatch.Start();
                 Console.WriteLine(message);
                 firstNumber = random.Next(defaultMin, defaultMax);
                 secondNumber = random.Next(defaultMin, defaultMax);
@@ -75,13 +81,16 @@ namespace MathGame2025
 
                 if (i == 4)
                 {
-                    Console.WriteLine($"Your score was {score} points. Press any key to go back to the main menu.");
+                    stopWatch.Stop();
+                    TimeSpan elapsedTime = stopWatch.Elapsed;
+                    string elapsedTimeRec = String.Format("{0:00}:{1:00}:2:00.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
+                    Console.WriteLine($"Your score was {score} points. Elapsed Time: {elapsedTimeRec}. Press any key to go back to the main menu.");
                     Console.ReadLine();
+                    Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty, elapsedTime);
                 }
 
 
             }
-            Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty);
 
 
         }
@@ -123,7 +132,9 @@ namespace MathGame2025
                         Console.ReadLine();
                         break;
                 }
-
+              
+                
+                Stopwatch stopWatch = new Stopwatch();
 
                 var random = new Random();
                 var score = 0;
@@ -133,9 +144,11 @@ namespace MathGame2025
 
 
 
+
                 for (int i = 0; i < 5; i++)
                 {
                     Console.Clear();
+                    stopWatch.Start();
                     Console.WriteLine(message);
                     firstNumber = random.Next(defaultMin, defaultMax);
                     secondNumber = random.Next(defaultMin, defaultMax);
@@ -157,10 +170,17 @@ namespace MathGame2025
                     }
 
 
-                    if (i == 4) Console.WriteLine($"Your score was {score} points");
+                    if (i == 4) {            
+                        stopWatch.Stop();
+                        TimeSpan elapsedTime = stopWatch.Elapsed;
+                        string elapsedTimeRec = String.Format("{0:00}:{1:00}:2:00.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
+                        Console.WriteLine($"Your score was {score} points. Elapsed Time: {elapsedTimeRec}. Press any key to go back to the main menu.");
+                        Console.ReadLine();
+                        Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty, elapsedTime);
+                    }
                 }
 
-                Helpers.AddToHistory(score, Models.GameType.Subtraction, selectedDifficulty);
+                
 
             }
         }
@@ -205,6 +225,8 @@ namespace MathGame2025
                 }
             }
 
+            Stopwatch stopWatch = new Stopwatch();
+
             var score = 0;
 
             var random = new Random();
@@ -215,6 +237,7 @@ namespace MathGame2025
             for (int i = 0; i < 5; i++)
             {
                 Console.Clear();
+                stopWatch.Start();
                 Console.WriteLine(message);
                 firstNumber = random.Next(defaultMin, defaultMax);
                 secondNumber = random.Next(defaultMin, defaultMax);
@@ -237,25 +260,32 @@ namespace MathGame2025
                     Console.WriteLine("Your answer was incorrect");
                 }
 
-                if (i == 4) Console.WriteLine($"Your score was {score} points");
+                if (i == 4)
+                {
+                    stopWatch.Stop();
+                    TimeSpan elapsedTime = stopWatch.Elapsed;
+                    string elapsedTimeRec = String.Format("{0:00}:{1:00}:2:00.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
+                    Console.WriteLine($"Your score was {score} points. Elapsed Time: {elapsedTimeRec}. Press any key to go back to the main menu.");
+                    Console.ReadLine();
+                    Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty, elapsedTime);
+                }
 
 
             }
 
-            Helpers.AddToHistory(score, Models.GameType.Multiplication, selectedDifficulty);
         }
 
         internal void DivisionGame(string message)
         {
+            Stopwatch stopWatch = new Stopwatch();
             var score = 0;
             Models.DifficultyLevel selectedDifficulty = Models.DifficultyLevel.Easy;
 
             for (int i = 0; i < 5; i++)
             {
 
-
-
                 Console.Clear();
+                stopWatch.Start();
                 Console.WriteLine(message);
 
                 var divisionNumbers = Helpers.GetDivisionNumbers();
@@ -279,16 +309,23 @@ namespace MathGame2025
                     Console.ReadLine();
                 }
 
-                if (i == 4) Console.WriteLine($"Your score was {score} points");
+                if (i == 4)
+                {
+                    stopWatch.Stop();
+                    TimeSpan elapsedTime = stopWatch.Elapsed;
+                    string elapsedTimeRec = String.Format("{0:00}:{1:00}:2:00.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
+                    Console.WriteLine($"Your score was {score} points. Elapsed Time: {elapsedTimeRec}. Press any key to go back to the main menu.");
+                    Console.ReadLine();
+                    Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty, elapsedTime);
+                }
 
 
             }
-
-            Helpers.AddToHistory(score, Models.GameType.Division, selectedDifficulty);
         }
 
         internal void RandomGame(string message)
         {
+            Stopwatch stopWatch = new Stopwatch();
             int defaultMin = 1;
             int defaultMax = 9;
             bool difficulty = false;
@@ -333,6 +370,7 @@ namespace MathGame2025
             for (int i = 0; i < 5; i++)
             {
                 Console.Clear();
+                stopWatch.Start();
                 Console.WriteLine(message);
 
                 int firstNumber = random.Next(defaultMin, defaultMax);
@@ -381,10 +419,13 @@ namespace MathGame2025
                 Console.ReadKey();
             }
 
-            Console.WriteLine($"Your score was {score} points. Press any key to go back to the main menu.");
-            Console.ReadLine();
 
-            Helpers.AddToHistory(score, Models.GameType.Random, selectedDifficulty); 
+            stopWatch.Stop();
+            TimeSpan elapsedTime = stopWatch.Elapsed;
+            string elapsedTimeRec = String.Format("{0:00}:{1:00}:2:00.{3:00}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds / 10);
+            Console.WriteLine($"Your score was {score} points. Elapsed Time: {elapsedTimeRec}. Press any key to go back to the main menu.");
+            Console.ReadLine();
+            Helpers.AddToHistory(score, Models.GameType.Addition, selectedDifficulty, elapsedTime);
         }
     }
 
